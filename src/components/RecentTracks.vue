@@ -21,7 +21,7 @@ import { mapState } from 'vuex';
   }
 })
 export default class RecentTracks extends Vue {
-  private mounted() {
+  private mounted(): void {
     this.$store.dispatch('getRecentTracks');
   }
 }

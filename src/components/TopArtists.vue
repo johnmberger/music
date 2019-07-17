@@ -18,7 +18,7 @@ import { mapState } from 'vuex';
   }
 })
 export default class TopArtists extends Vue {
-  private mounted() {
+  private mounted(): void {
     this.$store.dispatch('getWeeklyArtists');
   }
 }
