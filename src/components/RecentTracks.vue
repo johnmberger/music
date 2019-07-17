@@ -2,7 +2,7 @@
   <div>
     <strong>Recent Tracks:</strong>
     <div v-if="recentTracks.length">
-      <p v-for="track in recentTracks" :key="track.mbid">
+      <p v-for="(track, i) in recentTracks" :key="i">
         {{ track.name }}
         {{ track.artist.name }}
       </p>

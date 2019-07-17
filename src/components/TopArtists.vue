@@ -2,7 +2,7 @@
   <div>
     <strong>Top Artists:</strong>
     <div v-if="weeklyArtists.length">
-      <p v-for="artist in weeklyArtists" :key="artist.mbid">{{ artist.name }}</p>
+      <p v-for="(artist, i) in weeklyArtists" :key="i">{{ artist.name }}</p>
     </div>
     <div v-else>Loading...</div>
   </div>

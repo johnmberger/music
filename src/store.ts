@@ -30,7 +30,7 @@ export default new Vuex.Store({
     },
     async getWeeklyTracks({ commit }): Promise<void> {
       try {
-        const response = await api.getWeeklyTracks();
+        const response: AxiosResponse = await api.getWeeklyTracks();
         const tracks: Track[] = response.data
           ? response.data.toptracks.track
           : [];
@@ -41,7 +41,7 @@ export default new Vuex.Store({
     },
     async getRecentTracks({ commit }): Promise<void> {
       try {
-        const response = await api.getRecentTracks();
+        const response: AxiosResponse = await api.getRecentTracks();
         const tracks: Track[] = response.data
           ? response.data.recenttracks.track
           : [];

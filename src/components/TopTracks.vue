@@ -2,7 +2,7 @@
   <div>
     <strong>Top Tracks:</strong>
     <div v-if="weeklyTracks.length">
-      <p v-for="track in weeklyTracks" :key="track.mbid">
+      <p v-for="(track, i) in weeklyTracks" :key="i">
         {{ track.name }}
         {{ track.artist.name }}
       </p>

@@ -19,7 +19,6 @@ export interface Track {
   image: Image[];
   url: string;
   mbid: string;
-  streamable: string;
 }
 
 export interface ArtistInfo {
@@ -29,7 +28,6 @@ export interface ArtistInfo {
   playcount: string;
   image: Image[];
   name: string;
-  streamable: string;
 }
 
 interface Image {
