@@ -1,18 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <TopTracks />
+    <TopArtists />
+    <RecentTracks />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import TopArtists from './components/TopArtists.vue';
+import TopTracks from './components/TopTracks.vue';
+import RecentTracks from './components/RecentTracks.vue';
 
 @Component({
   components: {
-    HelloWorld,
-  },
+    TopArtists,
+    TopTracks,
+    RecentTracks
+  }
 })
 export default class App extends Vue {}
 </script>
