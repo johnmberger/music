@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from 'axios';
 
-const BASE_URL: string = 'http://stalk-me.johnmberger.com/music';
+const BASE_URL: string = 'https://stalk-me.johnmberger.com/music';
 
 export default {
   getWeeklyArtists(): AxiosPromise {
