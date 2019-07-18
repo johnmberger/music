@@ -8,10 +8,12 @@ Vue.use(Vuex);
 
 const initialState: AppState = {
   loading: true,
-  error: null,
   weeklyArtists: [],
   weeklyTracks: [],
-  recentTracks: []
+  recentTracks: [],
+  weeklyArtistsError: false,
+  weeklyTracksError: false,
+  recentTracksError: false
 };
 
 export default new Vuex.Store({
@@ -25,7 +27,7 @@ export default new Vuex.Store({
           : [];
         commit('setWeeklyArtists', artists);
       } catch (e) {
-        commit('apiError', e);
+        commit('setApiError', { name: 'recentTracksError', status: true });
       }
     },
     async getWeeklyTracks({ commit }): Promise<void> {
@@ -36,7 +38,7 @@ export default new Vuex.Store({
           : [];
         commit('setWeeklyTracks', tracks);
       } catch (e) {
-        commit('apiError', e);
+        commit('setApiError', { name: 'weeklyTracksError', status: true });
       }
     },
     async getRecentTracks({ commit }): Promise<void> {
@@ -47,7 +49,7 @@ export default new Vuex.Store({
           : [];
         commit('setRecentTracks', tracks);
       } catch (e) {
-        commit('apiError', e);
+        commit('setApiError', { name: 'recentTracksError', status: true });
       }
     },
     setLoadingStatus({ commit }, status: boolean): void {
@@ -55,20 +57,29 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    setWeeklyArtists(state, artists: ArtistInfo[]): void {
+    setWeeklyArtists(state: AppState, artists: ArtistInfo[]): void {
       state.weeklyArtists = artists;
     },
-    setWeeklyTracks(state, tracks: Track[]): void {
+    setWeeklyTracks(state: AppState, tracks: Track[]): void {
       state.weeklyTracks = tracks;
     },
-    setRecentTracks(state, tracks: Track[]): void {
+    setRecentTracks(state: AppState, tracks: Track[]): void {
       state.recentTracks = tracks;
     },
-    setLoadingStatus(state, status: boolean): void {
+    setLoadingStatus(state: AppState, status: boolean): void {
       state.loading = status;
     },
-    setApiError(state, error: any): void {
-      state.error = error;
+    setApiError(
+      state: AppState,
+      {
+        name,
+        status
+      }: {
+        name: 'recentTracksError' | 'weeklyTracksError' | 'recentTracksError';
+        status: boolean;
+      }
+    ): void {
+      state[name] = status;
     }
   }
 });

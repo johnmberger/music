@@ -1,9 +1,11 @@
 export interface AppState {
   loading: boolean;
-  error: any;
   weeklyArtists: ArtistInfo[];
   weeklyTracks: Track[];
   recentTracks: Track[];
+  weeklyArtistsError: boolean;
+  weeklyTracksError: boolean;
+  recentTracksError: boolean;
 }
 
 export interface Artist {
