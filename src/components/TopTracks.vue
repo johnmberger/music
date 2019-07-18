@@ -26,5 +26,6 @@ export default class TopTracks extends Vue {
   }
 }
 </script>
+
 <style scoped lang="less">
 </style>
